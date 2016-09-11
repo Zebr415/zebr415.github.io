@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute','Algorithm'])
+angular.module('myApp.bills', ['ngRoute','Algorithm'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/bills', {

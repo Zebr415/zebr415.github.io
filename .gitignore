@@ -1,0 +1,14 @@
+logs/*
+!.gitkeep
+node_modules/
+bower_components/
+tmp
+.DS_Store
+.idea
+.jshintrc
+.travis.yml
+karma.conf.js
+e2e-tests
+app/components
+app/view2
+app/index-async.html

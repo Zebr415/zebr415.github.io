@@ -1,0 +1,93 @@
+/* app css stylesheet */
+
+/*
+  深绿: #61c0bf
+  浅绿: #bbded6
+  粉红: #ffb6b9
+  浅粉: #fad3e9
+  天蓝: #4bbdf4
+  */
+
+.menu {
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
+}
+
+.menu:before {
+    content: "[";
+}
+
+.menu:after {
+    content: "]";
+}
+
+.menu > li {
+    display: inline;
+}
+
+.menu > li:before {
+    content: "|";
+    padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+    content: "";
+    padding: 0;
+}
+
+.page-intro {
+    color: #61c0bf;
+}
+
+.zl-card {
+    color: #333;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.zl-card-default header, .zl-card-default footer {
+    background-color: #f1f1f1;
+}
+
+ul.zl-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.zl-list > li {
+    padding: 10px 2px 10px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.zl-right {
+    float: right;
+}
+
+.zl-margin-right {
+    margin-right: 16px;
+}
+
+.zl-padding {
+    padding: 10px 16px;
+}
+
+.sortorder:after{
+    content: "\e253";
+}
+
+.sortorder.reverse:after{
+    content: "\e252";
+}
+
+/*h1.grid-header{*/
+/*color: #61c0bf;*/
+/*}*/
+
+/*h1.grid-header small{*/
+/*color: #bbded6;*/
+/*}*/
+
+
+

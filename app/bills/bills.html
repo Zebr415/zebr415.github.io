@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">发票报销
+            <small>| 求子集和</small>
+        </h1>
+    </div>
+</div>
+
+<section class="row page-intro">
+    <div class="col-lg-12">
+        <p>这里是一些介绍<br/>说实话我也不知道怎么介绍才好<br/>但是,你输入超过20个数值可能就呵呵</p>
+        <hr>
+    </div>
+</section>
+
+
+<section class="row grid-section">
+    <div class="col-md-6">
+        <div class="zl-card zl-card-default">
+            <header class="zl-padding"><h4>已有发票</h4></header>
+            <ul class="zl-list">
+                <li ng-if="!bills.length">还没有添加发票</li>
+                <li ng-repeat="bill in bills track by $index" ng-class="{'bg-success': curIndice.indexOf($index) != -1}">
+                    {{bill}}
+                    <span class="zl-right zl-margin-right" ng-click="removeBill($index)">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </span>
+                </li>
+            </ul>
+            <footer class="zl-padding">
+                <form ng-submit="onEnterBill(curInput)">
+                    <div class="input-group">
+                        <input type="number" class="form-control" ng-model="curInput" id="bill"
+                               placeholder="发票">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="button" ng-click="onEnterBill(curInput)">添加</button>
+                        </span>
+                    </div>
+                </form>
+            </footer>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="zl-card zl-card-default">
+            <header class="zl-padding"><h4>目标数值</h4></header>
+            <ul class="zl-list">
+                <li ng-if="!target">还没有添加目标数值</li>
+                <li ng-if="target"><h2>{{target}}</h2></li>
+            </ul>
+            <footer class="zl-padding">
+                <form ng-submit="resolve()">
+                    <div class="input-group">
+                        <input type="number" class="form-control" ng-model="target" id="target"
+                               placeholder="目标">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="button" ng-click="resolve()">确定</button>
+                        </span>
+                    </div>
+                </form>
+            </footer>
+        </div>
+    </div>
+</section>
+
+
+<table ng-show="results != null && results != undefined" class="table table-condensed table-striped table-hover">
+    <thead>
+    <tr>
+        <th><button ng-click="sortBy('nums')">数量<span class="glyphicon sortorder" ng-show="propertyName === 'nums'" ng-class="{reverse: reverse}"></span></button></th>
+        <th><button ng-click="sortBy('sum')">总和<span class="glyphicon sortorder" ng-show="propertyName === 'sum'" ng-class="{reverse: reverse}"></span></button></th>
+        <th>组合</th>
+        <th><button ng-click="sortBy('bias')">偏差<span class="glyphicon sortorder" ng-show="propertyName === 'bias'" ng-class="{reverse: reverse}"></span></button></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="result in results | orderBy:propertyName:reverse" ng-click="onRowClick(result.indice)">
+        <td>{{result.nums}}</td>
+        <td>{{result.sum}}</td>
+        <td>{{result.values.join(',')}}</td>
+        <td>{{result.bias}}</td>
+    </tr>
+    </tbody>
+</table>
+
+

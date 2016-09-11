@@ -1,0 +1,56 @@
+/*  app grid css stylesheet */
+
+.wrapper {
+    width: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.zl-navbar {
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.main-grid-body {
+    margin-top: 52px;
+}
+
+.main-grid-body .grid-left {
+    /*width: 220px;*/
+    position: fixed;
+    padding: 20px 0;
+}
+
+.main-grid-body .grid-right {
+    position: relative;
+    /*margin-left: 270px;*/
+    /*padding: 20px 0;*/
+}
+
+.grid-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.grid-section p{
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .main-body-grid > .grid-left, .header-fixed, .footer {
+        position: static !important;
+    }
+
+    .main-grid-body {
+        margin-top: 0px;
+    }
+}

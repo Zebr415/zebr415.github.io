@@ -51,9 +51,9 @@ angular.module('Algorithm', [])
                     tmpValue.push(list[index]);
                 }
                 tmpObj.values = tmpValue;
-                tmpObj.sum = tmpSum;
+                tmpObj.sum = Math.floor(tmpSum*100)/100;
                 tmpObj.nums = tmpNums;
-                tmpObj.bias = Math.abs(tmpSum - target);
+                tmpObj.bias = Math.floor(Math.abs(tmpSum - target)*100)/100;
                 resultArray.push(tmpObj);
             }
             return resultArray;

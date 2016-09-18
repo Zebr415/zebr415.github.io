@@ -17,10 +17,17 @@
 <section class="row grid-section">
     <div class="col-md-6">
         <div class="zl-card zl-card-default">
-            <header class="zl-padding"><h4>已有发票</h4></header>
+            <header class="zl-padding">
+                <h4>已有发票
+                    <a class="zl-right zl-margin-right" ng-click="removeBills()">
+                       清空
+                    </a>
+                </h4>
+            </header>
             <ul class="zl-list">
                 <li ng-if="!bills.length">还没有添加发票</li>
-                <li ng-repeat="bill in bills track by $index" ng-class="{'bg-success': curIndice.indexOf($index) != -1}">
+                <li ng-repeat="bill in bills track by $index"
+                    ng-class="{'bg-success': curIndice.indexOf($index) != -1}">
                     {{bill}}
                     <span class="zl-right zl-margin-right" ng-click="removeBill($index)">
                         <i class="glyphicon glyphicon-remove"></i>
@@ -30,8 +37,8 @@
             <footer class="zl-padding">
                 <form ng-submit="onEnterBill(curInput)">
                     <div class="input-group">
-                        <input type="number" class="form-control" ng-model="curInput" id="bill"
-                               placeholder="发票">
+                        <input type="number" step="0.01" class="form-control" ng-model="curInput" id="bill"
+                               placeholder="发票" required>
                         <span class="input-group-btn">
                             <button class="btn btn-success" type="button" ng-click="onEnterBill(curInput)">添加</button>
                         </span>
@@ -50,8 +57,8 @@
             <footer class="zl-padding">
                 <form ng-submit="resolve()">
                     <div class="input-group">
-                        <input type="number" class="form-control" ng-model="target" id="target"
-                               placeholder="目标">
+                        <input type="number" step="0.01" class="form-control" ng-model="target" id="target"
+                               placeholder="目标" required>
                         <span class="input-group-btn">
                             <button class="btn btn-success" type="button" ng-click="resolve()">确定</button>
                         </span>
@@ -66,10 +73,19 @@
 <table ng-show="results != null && results != undefined" class="table table-condensed table-striped table-hover">
     <thead>
     <tr>
-        <th><button ng-click="sortBy('nums')">数量<span class="glyphicon sortorder" ng-show="propertyName === 'nums'" ng-class="{reverse: reverse}"></span></button></th>
-        <th><button ng-click="sortBy('sum')">总和<span class="glyphicon sortorder" ng-show="propertyName === 'sum'" ng-class="{reverse: reverse}"></span></button></th>
+        <th>
+            <button ng-click="sortBy('nums')">数量<span class="glyphicon sortorder" ng-show="propertyName === 'nums'"
+                                                      ng-class="{reverse: reverse}"></span></button>
+        </th>
+        <th>
+            <button ng-click="sortBy('sum')">总和<span class="glyphicon sortorder" ng-show="propertyName === 'sum'"
+                                                     ng-class="{reverse: reverse}"></span></button>
+        </th>
         <th>组合</th>
-        <th><button ng-click="sortBy('bias')">偏差<span class="glyphicon sortorder" ng-show="propertyName === 'bias'" ng-class="{reverse: reverse}"></span></button></th>
+        <th>
+            <button ng-click="sortBy('bias')">偏差<span class="glyphicon sortorder" ng-show="propertyName === 'bias'"
+                                                      ng-class="{reverse: reverse}"></span></button>
+        </th>
     </tr>
     </thead>
     <tbody>
@@ -81,5 +97,4 @@
     </tr>
     </tbody>
 </table>
-
 

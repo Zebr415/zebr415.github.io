@@ -45,7 +45,7 @@ angular.module('Algorithm', [])
             var resultArray = [];
             for (let indexComb of allIndexCombs) {
                 let tmpObj = {}, tmpValue = [], tmpSum = 0, tmpNums = indexComb.length;
-                tmpObj.indice = indexComb;
+                tmpObj.indices = indexComb;
                 for (let index of indexComb) {
                     tmpSum += list[index];
                     tmpValue.push(list[index]);
